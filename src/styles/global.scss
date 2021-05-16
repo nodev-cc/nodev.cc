@@ -1,0 +1,20 @@
+@import "./fonts";
+@import "./colors";
+@import "./media-queries";
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+a {
+  color: #069;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,116 @@
+@import "../styles/global.scss";
+
+header {
+  top: 0;
+  width: 100%;
+  padding: 1rem 10%;
+
+  max-height: 6rem;
+  overflow-y: visible;
+
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+
+  border-bottom: solid 1px #0002;
+
+  & > a {
+    display: flex;
+    align-items: center;
+
+    & > img {
+      height: 4rem;
+    }
+    & > span {
+      margin-left: 1rem;
+      color: #000000;
+      @include respond-below(sm) {
+        display: none;
+      }
+    }
+  }
+  & > menu {
+    display: flex;
+    @include respond-above(md) {
+      align-items: center;
+    }
+
+    & > button {
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+
+      position: relative;
+      top: calc(50% - 1.2rem);
+
+      cursor: pointer;
+
+      & > span {
+        position: absolute;
+
+        display: block;
+        width: 2.4rem;
+
+        border-top: solid 1px #000000;
+
+        transform-origin: center;
+        transition-duration: 86ms;
+        transition-property: background-color,opacity,transform;
+        transition-timing-function: ease-out;
+
+        &:nth-child(1) {
+          top: calc(1.2rem - 1px - 0.8rem);
+        }
+        &:nth-child(2) {
+          top: calc(1.2rem - 1px);
+        }
+        &:nth-child(3) {
+          top: calc(1.2rem - 1px + 0.8rem);
+        }
+      }
+      &.active > span {
+        &:nth-child(1) {
+          transform: translateY(0.8rem) rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: translateY(-0.8rem) rotate(-45deg);
+        }
+      }
+      @include respond-above(md) {
+        display: none;
+      }
+    }
+    & > ul {
+      display: flex;
+      list-style: none;
+      & > li {
+        padding: 0 1rem;
+      }
+      @include respond-below(md) {
+        display: none;
+        position: fixed;
+        &.active {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+main {
+  margin-top: 6rem;
+  padding: 0 10%;
+}
+
+footer {
+  padding: 1rem 10%;
+  font-size: 1rem;
+  @include respond-above(sm) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
