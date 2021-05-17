@@ -23,7 +23,9 @@ header {
     }
     & > span {
       margin-left: 1rem;
-      color: #000000;
+      color: $primary;
+      font-size: 1.2rem;
+      font-weight: 700;
       @include respond-below(sm) {
         display: none;
       }

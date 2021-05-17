@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import Typical from "react-typical"
+import Typewriter from "typewriter-effect"
 
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
@@ -12,16 +12,28 @@ const IndexPage = () => (
     <Seo title="Home" />
     <div className="hero">
       <h2>We are</h2>
-      <Typical
-        steps={[
-          "The Nottingham University Developers' Community", 1000,
-          "A community for creators", 1000,
-          "A community for creators, for hackers", 1000,
-          "A community for creators, for hackers and for everyone", 2000,
-        ]}
-        loop={Infinity}
-        wrapper="h1"
-      />
+      <h1>
+        <Typewriter
+          onInit={(typewriter) => {
+            typewriter
+            .changeDelay(50)
+            .typeString("The Nottingham University Developers' Community.")
+            .pauseFor(3000)
+            .deleteAll()
+            .typeString("A community for hackers")
+            .pauseFor(1000)
+            .typeString(", for creators")
+            .pauseFor(1000)
+            .typeString(" and for everyone.")
+            .pauseFor(3000)
+            .deleteAll()
+            .start()
+          }}
+          options={{
+            loop: true,
+          }}
+        />
+      </h1>
     </div>
   </Layout>
 )
